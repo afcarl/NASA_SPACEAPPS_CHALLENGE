@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SPcaepps</title>
+    <script src="http://cesiumjs.org/releases/1.18/Build/Cesium/Cesium.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://cesiumjs.org/releases/1.11/Build/Cesium/Widgets/widgets.css">
+    <script src="{% static 'getcesium.js' %}" charset="utf-8"></script>
+  </head>
+  <body onload='startapp()'>
+    <div id="globe">
+
+    </div>
+   <script>
+    var viewer = new Cesium.Viewer('globe');
+  </script>
+  </body>
+</html> -->
+
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+    <script src="{%static 'papaparse.min.js'%}" charset="utf-8"></script>
+    <script src="fill.js" charset="utf-8"></script>
+    <link rel="stylesheet"  href="{% static 'main.css' %}">
+    <script src="{% static 'fill.js'%}" charset="utf-8"></script>
+    <!-- <script>
+      var earth;
+      function initialize() {
+        options = {sky:true}
+        earth = new WE.map('earth_div',options);
+        earth.setView([46.8011, 8.2266], 2);
+        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(earth);
+
+        // Start a simple rotation animation
+        var before = null;
+        requestAnimationFrame(function animate(now) {
+            var c = earth.getPosition();
+            var elapsed = before? now - before: 0;
+            before = now;
+            earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
+            requestAnimationFrame(animate);
+        });
+      }
+    </script> -->
+    <style>
+      html, body{padding: 0; margin: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; position: absolute;}
+    </style>
+    <title>WebGL Earth API: Hello World</title>
+  </head>
+  <body onload="initialize()">
+
+    <center><h4>Z-tracker</h4><input id="input" type="text" placeholder="NASA DATA HERE" name="" value="" width="100" height="30"><button id="submit" type="button" name="button">SEE TRACK</button></center>
+
+    <div id="earth_div" ></div>
+
+
+
+    <!-- <script type="text/javascript">
+
+
+
+$(document).ready(function() {
+$.ajax({
+    type: "GET",
+    url: "data1.csv",
+    dataType: "text",
+    success: function(data) {processData(data);}
+ });
+});
+
+function processData(allText) {
+  console.log('hi');
+var allTextLines = allText.split(/\r\n|\n/);
+var headers = allTextLines[0].split(',');
+var lines = [];
+
+for (var i=1; i<allTextLines.length; i++) {
+    var data = allTextLines[i].split(',');
+    if (data.length == headers.length) {
+
+        var tarr = [];
+        for (var j=0; j<headers.length; j++) {
+            tarr.push(headers[j]+":"+data[j]);
+        }
+        lines.push(tarr);
+        console.log(lines);
+    }
+}
+// alert(lines);
+}
+
+    </script> -->
+
+  </body>
+</html>
